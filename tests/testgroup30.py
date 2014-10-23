@@ -320,7 +320,7 @@ class Grp30No90(base_tests.SimpleDataPlane):
         	yes_ports=[]
         	no_ports = set(of_ports)
         	receive_pkt_check(self.dataplane,pkt,yes_ports,no_ports,self)
-		logging.info("The switch successfully drops packets on port " +str(of_port[1]))
+		logging.info("The switch successfully drops packets on port " +str(of_ports[1]))
 		
 
 	except:

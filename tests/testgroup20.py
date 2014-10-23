@@ -184,15 +184,15 @@ class Grp20No50(base_tests.SimpleDataPlane):
         logging.info("Inserting a flow entry")
         
 
-        # Insert a flow matching on ingress_port with action A (output to of_port[1])    
+        # Insert a flow matching on ingress_port with action A (output to of_ports[1])
         (pkt,match) = wildcard_all_except_ingress(self,of_ports)
   
-        # Modify the flow action (output to of_port[2])
+        # Modify the flow action (output to of_ports[2])
         logging.info("Modifying the output action of the flow entry")
         modify_flow_action(self,of_ports,match)
         
         logging.info("Expecting the Test Packet to implement the modified action")
-        # Send the Test Packet and verify action implemented is A' (output to of_port[2])
+        # Send the Test Packet and verify action implemented is A' (output to of_ports[2])
         send_packet(self,pkt,of_ports[0],of_ports[2])
         logging.info("Modified Action implemented")               
 
