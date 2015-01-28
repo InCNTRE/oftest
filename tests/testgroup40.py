@@ -454,7 +454,7 @@ class Grp40No90(base_tests.SimpleDataPlane):
 
         logging.info("Installing a flow")
            
-        #Create and add flow-1 Match on all, except one wildcarded (src adddress).Action A , output to of_port[1]
+        #Create and add flow-1 Match on all, except one wildcarded (src adddress).Action A , output to of_ports[1]
         #(pkt,match) = match_all_except_source_address(self,of_ports)
         (pkt,match) = exact_match(self,of_ports)
 
@@ -879,7 +879,7 @@ class Grp40No200(base_tests.SimpleDataPlane):
         logging.info("Adding and modifying flow with out_port fields set")
         logging.info("Expecting switch to ignore out_port")
 
-        # Create and add flow-1,Action A ,output to port of_port[1], out_port set to of_ports[2]
+        # Create and add flow-1,Action A ,output to port of_ports[1], out_port set to of_ports[2]
         (pkt,match) = wildcard_all_except_ingress(self,of_ports)
 
         # Verify flow is active
