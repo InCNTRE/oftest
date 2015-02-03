@@ -127,6 +127,7 @@ class Grp10No30(base_tests.SimpleDataPlane):
     def setUp(self):
         
         #This is almost same as setUp in SimpleProtocol except that intial hello is set to false
+        start_logging(self)
         self.controller = controller.Controller(
             host=config["controller_host"],
             port=config["controller_port"])
@@ -145,7 +146,6 @@ class Grp10No30(base_tests.SimpleDataPlane):
             raise Exception("Controller startup failed (no switch addr)")
         logging.info("Connected " + str(self.controller.switch_addr))
 
-    @wireshark_capture
     def runTest(self):
         logging = get_logger()
         logging.info("Running Test Grp10No30 Version Announcement test")
