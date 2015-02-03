@@ -109,6 +109,8 @@ def start_logging(testcase):
     testcase.addCleanup(stop_logging, process_ids)
 
 def stop_logging(process_ids):
+    """Stop wireshark captures for each network interface."""
+    if not config["publish"]: return
     stop_wireshark_cap(process_ids)
 
 def get_logger():
