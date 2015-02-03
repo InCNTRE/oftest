@@ -30,7 +30,7 @@ class Grp20No10(base_tests.SimpleProtocol):
     a) Send OFPT_FEATURES_REQUEST
 	b) Verify OFPT_FEATURES_REPLY is received"""
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp20No10 Features_Request test")
@@ -63,7 +63,7 @@ class Grp20No20(base_tests.SimpleProtocol):
     a) Send OFPT_GET_CONFIG_REQUEST
     b) Verify OFPT_GET_CONFIG_REPLY is received"""
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp20No20 Configuration_Request test ")
@@ -94,7 +94,7 @@ class Grp20No30(base_tests.SimpleProtocol):
     a) Send  OFPT_FLOW_MOD , command = OFPFC_ADD 
     c) Send ofp_aggregate_stats_request , verify flows=1 in reply"""
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp20No30 Modify_State_Add test")
@@ -128,7 +128,7 @@ class Grp20No40(base_tests.SimpleProtocol):
     c) Send OFPT_FLOW_MOD, command = OFPFC_DELETE
     c) Send ofp_table_stats request , verify active_count=0 in reply"""
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp20No40 Modify_State_Delete test")
@@ -169,7 +169,7 @@ class Grp20No50(base_tests.SimpleDataPlane):
     b) Send OFPT_FLOW_MOD, command = OFPFC_MODIFY , with output action A'
     c) Send a packet matching the flow, verify packet implements action A' """
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp20No50 Modify_State_Modify test")
@@ -203,7 +203,7 @@ class Grp20No60(base_tests.SimpleProtocol):
     b) Send ofp_flow_stats request
     b) Verify switch replies with a ofp_flow_stats"""
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp20No60 Read_State test")
@@ -231,7 +231,7 @@ class Grp20No70(base_tests.SimpleDataPlane):
     a) Send packet out message for each dataplane port.
     b) Verify the packet appears on the appropriate dataplane port"""
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp20No70 Packet_Out test")
@@ -299,7 +299,7 @@ class Grp20No80(base_tests.SimpleProtocol):
     a) Send OFPT_BARRIER_REQUEST
     c) Verify OFPT_BARRIER_REPLY is recieved"""
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp20No80 Barrier_Request_Reply test")
@@ -323,7 +323,7 @@ class Grp20No90(base_tests.SimpleDataPlane):
     a) Send a simple tcp packet to a dataplane port, without any flow-entry 
     b) Verify that a packet_in event is sent to the controller"""
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp20No90 Packet_In test")
@@ -360,7 +360,7 @@ class Grp20No100(base_tests.SimpleDataPlane):
     b) Verify switch also exchanges hello message -- (Poll the control plane)
     d) Verify the version field in the hello messages is openflow 1.0.0 """
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp20No100 Hello test")
@@ -381,7 +381,7 @@ class Grp20No110(base_tests.SimpleProtocol):
     a)  Send echo-request from the controller side, note echo body is empty here.
     b)  Verify switch responds back with echo-reply with same xid """
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp20No110 Echo_Without_Body test")

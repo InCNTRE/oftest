@@ -33,7 +33,7 @@ class Grp40No10(base_tests.SimpleDataPlane):
     refuses flow entry.
     """
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No10 Overlap_Checking test")
@@ -104,7 +104,7 @@ class Grp40No20(base_tests.SimpleDataPlane):
 
     """Verify that without overlap check flag set, Grp40No20overlapping flows can be created."""  
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No20 No_Overlap_Checking test")
@@ -140,7 +140,7 @@ class Grp40No30(base_tests.SimpleDataPlane):
     
     """Verify that adding two identical flows overwrites the existing one and clears counters"""
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No30 Identical_Flows test ")
@@ -186,7 +186,7 @@ class Grp40No40(base_tests.SimpleProtocol):
     """
     verify whether the switch sends an error message when the flow table is full
     """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No40 testcase")
@@ -255,7 +255,7 @@ class Grp40No50(base_tests.SimpleProtocol):
     Some switches may generate an OFPT_ERROR , with type field FLOW_MOD_FAILED and code permission errors 
     (this is also acceptable)
     """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No50 NeverValidPort test")
@@ -302,7 +302,7 @@ class Grp40No60(base_tests.SimpleDataPlane):
     OFPBAC_BAD_OUT_PORT.
     '''
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No60 flow on non existant port test")
@@ -349,7 +349,7 @@ class Grp40No60(base_tests.SimpleDataPlane):
 class Grp40No70(base_tests.SimpleProtocol): 
 
     """Timeout values are not allowed for emergency flows"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No70 Emergency_Flow_Timeout test")
@@ -400,7 +400,7 @@ class Grp40No80(base_tests.SimpleDataPlane):
 
     """If a modify does not match an existing flow, the flow gets added """
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No80 Missing_Modify_Add test")
@@ -439,7 +439,7 @@ class Grp40No80(base_tests.SimpleDataPlane):
 class Grp40No90(base_tests.SimpleDataPlane):
 
     """A modified flow preserves counters"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No90 Modify_Action test ")
@@ -481,7 +481,7 @@ class Grp40No90(base_tests.SimpleDataPlane):
 class Grp40No100(base_tests.SimpleDataPlane):
 
     """Strict Modify Flow also changes action preserves counters"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No100 Strict_Modify_Action test")
@@ -530,7 +530,7 @@ class Grp40No100(base_tests.SimpleDataPlane):
 class Grp40No110(base_tests.SimpleDataPlane):
     
     """Request deletion of non-existing flow"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Delete_NonExisting_Flow Grp40No110 test begins")
@@ -568,7 +568,7 @@ class Grp40No120(base_tests.SimpleDataPlane):
     """Check deletion of flows happens and generates messages as configured.
     If Send Flow removed message Flag is set in the flow entry, the flow deletion of that respective flow should generate the flow removed message, 
     vice versa also exists """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No120 Send_Flow_Rem test ")
@@ -628,7 +628,7 @@ class Grp40No130(base_tests.SimpleProtocol):
 
     """Delete emergency flow and verify no message is generated.An emergency flow deletion will not generate flow-removed messages even if 
     Send Flow removed message flag was set during the emergency flow entry"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No130 Delete_Emer_Flow")
@@ -673,7 +673,7 @@ class Grp40No140(base_tests.SimpleDataPlane):
 
     """Delete and verify strict and non-strict behaviors
     This test compares the behavior of delete strict and non-strict"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Grp40No140 test begins")
@@ -788,7 +788,7 @@ class Grp40No190(base_tests.SimpleDataPlane):
     out_port is deleted.
     """
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No190: Delete with constraint out_port")
@@ -863,7 +863,7 @@ class Grp40No200(base_tests.SimpleDataPlane):
 
     """Add, modify flows with outport set. This field is ignored by ADD, MODIFY, and MODIFY STRICT messages."""
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No200 out_port ignored by add and modify request")
@@ -902,7 +902,7 @@ class Grp40No200(base_tests.SimpleDataPlane):
 class Grp40No220(base_tests.SimpleDataPlane):
 
     """ Verify that idle timeout is implemented"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No220 Idle_Timeout test ")
@@ -956,7 +956,7 @@ class Grp40No230(base_tests.SimpleDataPlane):
 
     """ Verify that hard timeout is implemented """
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No230 Hard_Timeout test ")
@@ -1004,7 +1004,7 @@ class Grp40No210(base_tests.SimpleDataPlane):
   
     """Verify that Flow removed messages for timeout is implemented."""
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp40No210 Flow_Timeout test ")

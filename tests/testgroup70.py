@@ -29,7 +29,7 @@ class Grp70No10(base_tests.SimpleDataPlane):
 
     """NoActionDrop : no action added to flow , drops the packet."""
 
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -86,7 +86,7 @@ class Grp70No20(base_tests.SimpleDataPlane):
     """Announcement : Get all supported actions by the switch.
     Send OFPT_FEATURES_REQUEST to get features supported by sw."""
 
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -135,7 +135,7 @@ class Grp70No30(base_tests.SimpleDataPlane):
     """ForwardAll : Packet is sent to all dataplane ports
     except ingress port when output action.port = OFPP_ALL"""
 
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -192,7 +192,7 @@ class Grp70No40(base_tests.SimpleDataPlane):
     """ForwardController : Packet is sent to controller 
     output.port = OFPP_CONTROLLER"""
 
-    @wireshark_capture
+    
     def runTest(self):
         
         logging = get_logger()
@@ -250,7 +250,7 @@ class Grp70No50(base_tests.SimpleDataPlane):
     """ForwardLocal : Packet is sent to  OFPP_LOCAL port . 
         TBD : To verify packet recieved in the local networking stack of switch"""
 
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -304,7 +304,7 @@ class Grp70No60(base_tests.SimpleDataPlane):
         If the output action.port in the packetout message = OFP.TABLE , then 
         the packet implements the action specified in the matching flow of the FLOW-TABLE"""
 
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -346,7 +346,7 @@ class Grp70No70(base_tests.SimpleDataPlane):
     """ ForwardInPort : Packet sent to virtual port IN_PORT
     If the output.port = OFPP.INPORT then the packet is sent to the input port itself"""
 
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -405,7 +405,7 @@ class Grp70No90(base_tests.SimpleDataPlane):
     TBD : Verification---Incase of STP being implemented, flood the packet along the minimum spanning tree,
              not including the incoming interface. """
     
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -459,7 +459,7 @@ class Grp70No110 (base_tests.SimpleDataPlane):
     """
     Cannot test the correctness of the testcase without vendor specs
     """
-    @wireshark_capture
+    
     def runTest(self):
         logging=get_logger()
         logging.info("Running Grp70No110 forward Enqueue test")
@@ -496,7 +496,7 @@ class Grp70No100(base_tests.SimpleDataPlane):
     ports.
     """
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp70No100 Forward: Multiple Ports")
@@ -541,7 +541,7 @@ class Grp70No120(base_tests.SimpleDataPlane):
     
     """AddVlanTag : Adds VLAN Tag to untagged packet."""
 
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -584,7 +584,7 @@ class Grp70No130(base_tests.SimpleDataPlane):
 
     """ModifyVlanTag : Modifies VLAN Tag to tagged packet."""
     
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -624,7 +624,7 @@ class Grp70No140(base_tests.SimpleDataPlane):
    
     """AddVlanPrioUntaggedPkt : Add VLAN priority to untagged packet."""
     
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -666,7 +666,7 @@ class Grp70No150(base_tests.SimpleDataPlane):
     
     """ModifyVlanPrio : Modify VLAN priority to tagged packet."""
     
-    @wireshark_capture
+    
     def runTest(self):
         
         logging = get_logger()
@@ -707,7 +707,7 @@ class Grp70No150(base_tests.SimpleDataPlane):
 class Grp70No160(base_tests.SimpleDataPlane):
     """Strip vlan header"""
 
-    @wireshark_capture
+    
     def runTest(self):
         
         logging = get_logger()
@@ -753,7 +753,7 @@ class Grp70No170(base_tests.SimpleDataPlane):
     
     """ModifyL2Src :Modify the source MAC address"""
 
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -790,7 +790,7 @@ class Grp70No180(base_tests.SimpleDataPlane):
     
     """ModifyL2SDSt :Modify the dest MAC address"""
 
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -826,7 +826,7 @@ class Grp70No190(base_tests.SimpleDataPlane):
     
     """ModifyL3Src : Modify the source IP address of an IP packet """
 
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -862,7 +862,7 @@ class Grp70No200(base_tests.SimpleDataPlane):
     
     """ModifyL3Dst :Modify the dest IP address of an IP packet"""
     
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -898,7 +898,7 @@ class Grp70No210(base_tests.SimpleDataPlane):
     
     """ModifyTOS :Modify the IP type of service of an IP packet"""
     
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -935,7 +935,7 @@ class Grp70No220(base_tests.SimpleDataPlane):
     
     """ModifyL4Src : Modify the source TCP port of a TCP packet"""
     
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -971,7 +971,7 @@ class Grp70No230(base_tests.SimpleDataPlane):
     
     """ ModifyL4Dst: Modify the dest TCP port of a TCP packet """
 
-    @wireshark_capture    
+        
     def runTest(self):
 
         logging = get_logger()

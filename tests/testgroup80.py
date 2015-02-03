@@ -53,7 +53,7 @@ class Grp80No10(base_tests.SimpleDataPlane):
         logging.info("Connected " + str(self.controller.switch_addr))
         
         
-    @wireshark_capture 
+     
     def runTest(self):
 
         logging.info("Running Grp80No10 HelloWithoutBody Test")            
@@ -100,7 +100,7 @@ class Grp80No20(base_tests.SimpleDataPlane):
         logging.info("Connected " + str(self.controller.switch_addr))
         
         
-    @wireshark_capture 
+     
     def runTest(self):
 
         logging.info("Running Grp80No20 HelloWithBody Test")            
@@ -127,7 +127,7 @@ class Grp80No30(base_tests.SimpleProtocol):
     it generates OFPT_ERROR_msg with Type field OFPET_BAD_REQUEST 
     and code field OFPBRC_BAD_VERSION
     """
-    @wireshark_capture 
+     
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp80No30 Error Msg test")
@@ -153,7 +153,7 @@ class Grp80No40(base_tests.SimpleProtocol):
     
     """Verify if OFPT_ECHO_REQUEST without body. """
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp80No40 EchoWithoutData test")
@@ -176,7 +176,7 @@ class Grp80No50(base_tests.SimpleProtocol):
     """Verify if OFPT_ECHO_REQUEST has data field,
     switch responds back with OFPT_ECHO_REPLY with data field copied into it. """
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp80No40 EchoWithData test")
@@ -207,7 +207,7 @@ class Grp80No60(base_tests.SimpleProtocol):
     Verify OFPT_FEATURES_REQUEST / REPLY dialogue.
     """
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp80No60: Features Request-Reply")
@@ -231,7 +231,7 @@ class Grp80No70(base_tests.SimpleProtocol):
     Verify OFPT_FEATURES_REPLY contains complete feature information.
     """
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp80No70 Features Reply Body test")
@@ -338,7 +338,7 @@ class Grp80No70(base_tests.SimpleProtocol):
 class Grp80No200(base_tests.SimpleProtocol):
 
     """Verify the body of OFPT_GET_CONFIG_REPLY message """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp80No200 GetConfigReply Test")
@@ -372,7 +372,7 @@ class Grp80No200(base_tests.SimpleProtocol):
 class Grp80No210(base_tests.SimpleDataPlane):
     
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info('Running Grp80No210 OFPC_FRAG_NORMAL')
@@ -415,7 +415,7 @@ class Grp80No210(base_tests.SimpleDataPlane):
 class Grp80No260(base_tests.SimpleProtocol):
 
     """Verify OFPT_SET_CONFIG is implemented"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp80No260 SetConfigRequest Test")
@@ -462,7 +462,7 @@ class Grp80No260(base_tests.SimpleProtocol):
 class Grp80No270(base_tests.SimpleProtocol):
 
     """Verify OFPT_SET_CONFIG is implemented"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp80No270 Test")
@@ -518,7 +518,7 @@ class Grp80No270(base_tests.SimpleProtocol):
 class Grp80No280(base_tests.SimpleProtocol):
 
     """Verify OFPT_SET_CONFIG is implemented"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp80No280 Test")
@@ -574,7 +574,7 @@ class Grp80No280(base_tests.SimpleProtocol):
 class Grp80No290(base_tests.SimpleProtocol):
 
     """Verify OFPT_SET_CONFIG is implemented"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp80No290 Test")
@@ -631,7 +631,7 @@ class Grp80No290(base_tests.SimpleProtocol):
 class Grp80No300(base_tests.SimpleProtocol):
 
     """Verify OFPT_SET_CONFIG is implemented"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp80No300 Test")

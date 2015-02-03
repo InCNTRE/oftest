@@ -25,7 +25,7 @@ class Grp90No10(base_tests.SimpleDataPlane):
     """Verify the packet_in message body, 
     when packet_in is triggered due to a flow table miss"""
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp90No10 PacketInBodyMiss Test")
@@ -77,7 +77,7 @@ class Grp90No20(base_tests.SimpleDataPlane):
         verify the data sent in packet_in varies in accordance with the
         miss_send_len field set in OFPT_SET_CONFIG"""
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp90No20 PacketInSizeMiss Test")
@@ -125,7 +125,7 @@ class Grp90No20(base_tests.SimpleDataPlane):
 class Grp90No60(base_tests.SimpleDataPlane):
 
     """Verify the packet_in message body, when packet_in is generated due to action output to controller"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp90No60 PacketInBodyAction Test")
@@ -185,7 +185,7 @@ class Grp90No70(base_tests.SimpleDataPlane):
         verify the data sent in packet_in varies in accordance with the
         max_len field set in action_output"""
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp90No70 PacketInSizeAction Test")
@@ -250,7 +250,7 @@ class Grp90No110(base_tests.SimpleDataPlane):
 
     #priority = -1 #This would skip the set
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp90No110 PortStatusMessage Test")
@@ -292,7 +292,7 @@ class Grp90No120(base_tests.SimpleDataPlane):
     
     """ Modify the behavior of physical port using Port Modification Messages
     Change OFPPC_NO_FLOOD flag  and verify change takes place with features request """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp90No120 PortModFlood Test")
@@ -337,7 +337,7 @@ class Grp90No130(base_tests.SimpleDataPlane):
     """ 
     Modify the behavior of physical port using Port Modification Messages
     Change OFPPC_NO_FWD flag and verify change took place with Features Request"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp90No130 PortModFwd Test")
@@ -381,7 +381,7 @@ class Grp90No140(base_tests.SimpleDataPlane):
     """ 
     Modify the behavior of physical port using Port Modification Messages
     Change OFPPC_NO_PACKET_IN flag and verify change took place with Features Request"""
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -424,7 +424,7 @@ class Grp90No140(base_tests.SimpleDataPlane):
 
 class Grp90No150(base_tests.SimpleDataPlane):
     """Verify that the Controller is able to use the Packet_out message"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Runnign Grp90No150 testcase")
@@ -453,7 +453,7 @@ class Grp90No150(base_tests.SimpleDataPlane):
 class Grp90No160(base_tests.SimpleDataPlane):
     
     """Verify Description Stats message body """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp90No160 DescStatsGet test")
@@ -490,7 +490,7 @@ class Grp90No170(base_tests.SimpleProtocol):
 
     """Verify Queue Configuration Reply message body """
 
-    @wireshark_capture  
+      
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp90No170 QueueConfigRequest")
