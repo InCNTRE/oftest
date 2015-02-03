@@ -29,6 +29,7 @@ class Grp80No10(base_tests.SimpleDataPlane):
     """Verify switch should be able to receive OFPT_HELLO messages without body"""
 
     def setUp(self):
+        start_logging(self)
         logging = get_logger()
         #This is almost same as setUp in SimpleProtcocol except that intial hello is set to false
         self.controller = controller.Controller(
@@ -76,6 +77,7 @@ class Grp80No20(base_tests.SimpleDataPlane):
         but it should ignore the contents of the body"""
 
     def setUp(self):
+        start_logging(self)
         logging = get_logger()
         #This is almost same as setUp in SimpleProtcocol except that intial hello is set to false
         self.controller = controller.Controller(

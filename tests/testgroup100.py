@@ -35,6 +35,7 @@ class Grp100No10(base_tests.SimpleProtocol):
     """
     
     def setUp(self):
+        start_logging(self)
         logging = get_logger()
         #This is almost same as setUp in SimpleProtocol except that intial hello is set to false
         self.controller = controller.Controller(
