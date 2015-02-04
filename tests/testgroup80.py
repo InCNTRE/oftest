@@ -30,7 +30,6 @@ class Grp80No10(base_tests.SimpleDataPlane):
 
     def setUp(self):
         start_logging(self)
-        logging = get_logger()
         #This is almost same as setUp in SimpleProtcocol except that intial hello is set to false
         self.controller = controller.Controller(
             host=config["controller_host"],
@@ -56,7 +55,7 @@ class Grp80No10(base_tests.SimpleDataPlane):
         
      
     def runTest(self):
-
+        logging = get_logger()
         logging.info("Running Grp80No10 HelloWithoutBody Test")            
         (response, pkt) = self.controller.poll(exp_msg=ofp.OFPT_HELLO,         
                                               timeout=5)
@@ -78,7 +77,6 @@ class Grp80No20(base_tests.SimpleDataPlane):
 
     def setUp(self):
         start_logging(self)
-        logging = get_logger()
         #This is almost same as setUp in SimpleProtcocol except that intial hello is set to false
         self.controller = controller.Controller(
             host=config["controller_host"],
@@ -104,7 +102,7 @@ class Grp80No20(base_tests.SimpleDataPlane):
         
      
     def runTest(self):
-
+        logging = get_logger()
         logging.info("Running Grp80No20 HelloWithBody Test")            
         (response, pkt) = self.controller.poll(exp_msg=ofp.OFPT_HELLO,         
                                               timeout=5)
