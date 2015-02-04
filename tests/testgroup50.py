@@ -29,7 +29,7 @@ from FuncUtils import *
 class Grp50No10(base_tests.SimpleDataPlane):
 
     """Verify for an all wildcarded flow all the injected packets would match that flow"""
-    @wireshark_capture
+    
     
     def runTest(self):
         logging = get_logger()
@@ -90,7 +90,7 @@ class Grp50No20(base_tests.SimpleDataPlane):
     
     """Verify match on single Header Field Field -- In_port """
 
-    @wireshark_capture
+    
     
     def runTest(self):
         logging = get_logger()
@@ -135,7 +135,7 @@ class Grp50No20(base_tests.SimpleDataPlane):
 class Grp50No30(base_tests.SimpleDataPlane):
     
     """Verify match on single header field -- Ethernet Src Address  """
-    @wireshark_capture
+    
     
     def runTest(self):
         logging = get_logger()
@@ -182,7 +182,7 @@ class Grp50No30(base_tests.SimpleDataPlane):
 class Grp50No40(base_tests.SimpleDataPlane):
     
     """Verify match on single Header Field Field -- Ethernet Dst Address """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No40 Ethernet Dst Address test")
@@ -227,7 +227,7 @@ class Grp50No40(base_tests.SimpleDataPlane):
 class Grp50No50(base_tests.SimpleDataPlane):
     
     """Verify match on single header field -- Ethernet Type """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No50 Ethernet Type test")
@@ -275,7 +275,7 @@ class Grp50No60(base_tests.SimpleDataPlane):
 
     """Verify match on single Header Field Field -- Vlan Id """
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No60 Match on Vlan Id  test")
@@ -322,7 +322,7 @@ class Grp50No60(base_tests.SimpleDataPlane):
 class Grp50No70(base_tests.SimpleDataPlane):
 
     """"Verify match on single Header Field Field -- Vlan Priority"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No70 VlanPCP test")
@@ -369,7 +369,7 @@ class Grp50No80a(base_tests.SimpleDataPlane):
 
     """"Verify match on single Header Field Field -- IP_SRC_ADDRESS 
     Generates an exact match here"""
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -427,7 +427,7 @@ class Grp50No80b(base_tests.SimpleDataPlane):
 
     """"Verify match on single Header Field Field -- IP_SRC_ADDRESS 
     Wildcards all bits in ip_src_address here"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No80b widlcard Matching on IP_SRC test")
@@ -481,7 +481,7 @@ class Grp50No80c(base_tests.SimpleDataPlane):
 
     """"Verify match on single Header Field Field -- IP_SRC_ADDRESS 
     Generates an match with wildcarding certain number of bits in ip_address"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Ip_Src test")
@@ -546,7 +546,7 @@ class Grp50No90a(base_tests.SimpleDataPlane):
 
     """"Verify match on single Header Field Field -- IP_DST_ADDRESS 
     Generates an exact match here"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No90a IP_DST test")
@@ -604,7 +604,7 @@ class Grp50No90b(base_tests.SimpleDataPlane):
 
     """"Verify match on single Header Field Field -- IP_DST_ADDRESS 
     Generates an wildcard match here"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No90b Ip_Dst test")
@@ -660,7 +660,7 @@ class Grp50No90c(base_tests.SimpleDataPlane):
 
     """"Verify match on single Header Field Field -- IP_SRC_ADDRESS 
     Generates an match with wildcarding certain number of bits in ip_address"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No90c Ip_Src test")
@@ -724,7 +724,7 @@ class Grp50No90c(base_tests.SimpleDataPlane):
 class Grp50No100(base_tests.SimpleDataPlane):
 
     """"Verify match on single Header Field Field -- Ip Protocol"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No100 Ip Protocol test")
@@ -769,7 +769,7 @@ class Grp50No100(base_tests.SimpleDataPlane):
 class Grp50No110(base_tests.SimpleDataPlane):
 
     """"Verify match on single Header Field Field -- Type of service"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No110 Ip_Tos test")
@@ -813,7 +813,7 @@ class Grp50No110(base_tests.SimpleDataPlane):
 class Grp50No120a(base_tests.SimpleDataPlane):
     
     """Verify match on Single header field -- Tcp Source Port"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No120a Tcp Src Port test")
@@ -856,7 +856,7 @@ class Grp50No120a(base_tests.SimpleDataPlane):
 class Grp50No120b(base_tests.SimpleDataPlane):
     
     """Verify match on Single header field --Match on Tcp Source Port/IcmpType  """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running IcmpType test")
@@ -899,7 +899,7 @@ class Grp50No120b(base_tests.SimpleDataPlane):
 class Grp50No130a(base_tests.SimpleDataPlane):
     
     """Verify match on Single header field -- Tcp Destination Port """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No130 Tcp Destination Port test")
@@ -942,7 +942,7 @@ class Grp50No130a(base_tests.SimpleDataPlane):
 class Grp50No130b(base_tests.SimpleDataPlane):
     
     """Verify match on Single header field -- Tcp Destination Port/IcmpCode  """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No130b test")
@@ -984,7 +984,7 @@ class Grp50No130b(base_tests.SimpleDataPlane):
 class Grp50No140(base_tests.SimpleDataPlane):
     
     """Verify match on multiple header field -- Ethernet Type, Ethernet Source Address, Ethernet Destination Address """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No140 Multiple Header Field L2 test")
@@ -1072,7 +1072,7 @@ class Grp50No150(base_tests.SimpleDataPlane):
 
     """"Verify match on multiple Header Fielda -- L3 
     Generates a wildcard match here"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No150 L3 matching test")
@@ -1132,7 +1132,7 @@ class Grp50No150(base_tests.SimpleDataPlane):
 class Grp50No160(base_tests.SimpleDataPlane):
     
     """Verify match on multiple header field -- Tcp Source Port, Tcp Destination Port  """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No160 Multiple Header Field L4 test")
@@ -1183,7 +1183,7 @@ class Grp50No160(base_tests.SimpleDataPlane):
 class Grp50No170(base_tests.SimpleDataPlane):
     
     """Verify match on All header fields -- Exact Match  """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No170 Exact Match test")
@@ -1225,7 +1225,7 @@ class Grp50No170(base_tests.SimpleDataPlane):
 class Grp50No180(base_tests.SimpleDataPlane):
     
     """Verify that Exact Match has highest priority """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No180a Exact Match High Priority test")
@@ -1266,7 +1266,7 @@ class Grp50No180(base_tests.SimpleDataPlane):
 class Grp50No190(base_tests.SimpleDataPlane):
     
     """Verify that Wildcard Match with highest priority overrides the low priority WildcardMatch """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No190 Wildcard Match High Priority test")
@@ -1301,7 +1301,7 @@ class Grp50No190(base_tests.SimpleDataPlane):
 
 class Grp50No210(base_tests.SimpleDataPlane):
     """ Verify that the switch matches on the ether type=0x0806 and also the IP source address"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No210 match on ether type and IP source address test")
@@ -1340,7 +1340,7 @@ class Grp50No210(base_tests.SimpleDataPlane):
 
 class Grp50No220(base_tests.SimpleDataPlane):
     """ Verify that the switch matches on the ether type=0x0806 and also the IP destination address"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp50No220 match on ether type and IP destination address test")

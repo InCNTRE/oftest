@@ -33,8 +33,9 @@ class Grp100No10(base_tests.SimpleProtocol):
     it generates an OFPT_ERROR msg with Type Field OFPET_HELLO_FAILED
     code field OFPHFC_INCOMPATIBLE    
     """
-    @wireshark_capture
+    
     def setUp(self):
+        start_logging(self)
         logging = get_logger()
         #This is almost same as setUp in SimpleProtocol except that intial hello is set to false
         self.controller = controller.Controller(
@@ -84,7 +85,7 @@ class Grp100No30(base_tests.SimpleProtocol):
     it generates OFPT_ERROR_msg with Type field OFPET_BAD_REQUEST 
     and code field OFPBRC_BAD_VERSION
     """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp100No20 BadRequestBadVersion Test") 
@@ -111,7 +112,7 @@ class Grp100No40(base_tests.SimpleProtocol):
    supported by the switch ,it generates an OFPT_ERROR msg with the Type Field OFPET_BAD_REQUEST
    and code field OFPBRC_BAD_TYPE
     """ 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp100No30 BadRequestBadType test")
@@ -137,7 +138,7 @@ class Grp100No50(base_tests.SimpleProtocol):
     message with a OFPBRC_BAD_VENDOR error code and OFPET_BAD_REQUEST error
     type.
     """
-    @wireshark_capture
+    
     def runTest(self):  
         logging = get_logger()
         logging.info("Running Grp100No50 BadRequestBadVendor test")      
@@ -156,7 +157,7 @@ class Grp100No80(base_tests.SimpleProtocol):
     switch generates an OFPT_ERROR msg with type field OFPET BAD_REQUEST 
     and code field OFPBRC_BAD_LEN
     """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp100No80 BadRequestBadLength test")
@@ -191,7 +192,7 @@ class Grp100No90(base_tests.SimpleDataPlane):
     replies back with OFPT_ERROR msg with type fiels OFPET_BAD_REQUEST
 
     """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp100No90 BadRequestBufferUnknown test")
@@ -280,7 +281,7 @@ class Grp100No100(base_tests.SimpleProtocol):
     replies back with OFPT_ERROR msg with type fiels OFPET_BAD_REQUEST
 
     """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp100No100 BadRequestBufferUnknown test")
@@ -315,7 +316,7 @@ class Grp100No110(base_tests.SimpleDataPlane):
     """When the type field in the action header specified by the controller is unknown , 
     the switch generates an OFPT_ERROR msg with type field OFPBET_BAD_ACTION and code field OFPBAC_BAD_TYPE
     """
-    @wireshark_capture
+    
     def runTest(self):  
         logging = get_logger()
         logging.info("Running Grp100No110 test")
@@ -347,7 +348,7 @@ class Grp100No120(base_tests.SimpleDataPlane):
     """When the length field in the action header specified by the controller is wrong ,
     the switch replies back with an OFPT_ERROR msg with Type Field OFPBAC_BAD_LEN"""
     
-    @wireshark_capture
+    
     def runTest(self):  
         logging = get_logger()
         logging.info("Running Grp100No120 BadActionBadLen test")
@@ -386,7 +387,7 @@ class Grp100No150(base_tests.SimpleProtocol):
     Some switches may generate an OFPT_ERROR , with error type  FLOW_MOD_FAILED and error code OFPFMFC_EPERM
     (this is also acceptable)
     """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp100No150 BadActionBadPort test")
@@ -426,7 +427,7 @@ class Grp100No160(base_tests.SimpleProtocol):
 
     Error code OFPBAC_EPERM error is also acceptable
     """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp100No160 BadActionBadArgument test")
@@ -468,7 +469,7 @@ class Grp100No180(base_tests.SimpleProtocol):
     with type field OFPT_BAD_ACTION and code field OFPBAC_TOO_MANY
     """
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running BadActionTooMany Grp100No180 test")
@@ -516,7 +517,7 @@ class Grp100No190(base_tests.SimpleDataPlane):
     If the switch is not able to process the Enqueue action specified by the controller then 
     the switch should generate an OFPT_ERROR msg ,type field OFPT_BAD_ACTION and code field OFPBAC_BAD_QUEUE"""
    
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running BadActionQueue Grp100No190 test")
@@ -564,7 +565,7 @@ class Grp100No210(base_tests.SimpleDataPlane):
         overlapping flow is inserted then an error 
         type OFPET_FLOW_MOD_FAILED code OFPFMFC_OVERLAP"""
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running FlowModFailedOverlap Grp100No210 test")
@@ -625,7 +626,7 @@ class Grp100No230(base_tests.SimpleProtocol):
         Otherwise , should switch should respond with an OFPT ERROR msg , 
         type field OFPET_FLOW_MOD_FAILED, code field OFPFMFC_BAD_EMERG_TIMEOUT"""
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running FlowModFailedBadEmer Grp100No230 test")
@@ -676,7 +677,7 @@ class Grp100No240(base_tests.SimpleProtocol):
     some invalid command , the switch responds with an OFPT_ERROR msg , 
     type field OFPET_FLOW_MOD_FAILED and code field OFPFMFC_BAD_COMMAND """
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running FlowModFailedBadCommand Grp100No240 test")
@@ -704,7 +705,7 @@ class Grp100No250(base_tests.SimpleProtocol):
     If a switch cannot process the action list for any  flow mod message in the order specied, 
     it must return an Error with error.type OFPET_FLOW_MOD_FAILED and error.code OFPFMFC_UNSUPPORTED or OFPFMFC_EPERM error and reject the flow """
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running FlowModFailed Unsupported action list Grp100No250 test")
@@ -737,7 +738,7 @@ class Grp100No260(base_tests.SimpleProtocol):
     error message is received.
     """
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running PortModFailedBadPort Grp100No260 test")
@@ -761,7 +762,7 @@ class Grp100No270(base_tests.SimpleProtocol):
     from one returned in ofp_phy_port struct.,the switch will respond back with an OFPT_ERROR msg , 
     type field OFPET_PORT_MOD_FAILED and code field OFPPMFC_BAD_HW_ADDR
     """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running PortModFailedBadHwAdd Grp100No270 test")
@@ -803,7 +804,7 @@ class Grp100No280(base_tests.SimpleDataPlane):
      is an invalid port , then the switch responds back with an error msg OFPT_ERROR msg , 
      type field OFPET_QUEUE_OP_FAILED , code field OFPQOFC_BAD_PORT"""
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp100No280 QueueOpFailedBadPort test")
@@ -835,7 +836,7 @@ class Grp100No290(base_tests.SimpleDataPlane):
     is an invalid queue ,then the switch responds back with an error msg OFPT_ERROR msg , 
     type field OFPET_QUEUE_OP_FAILED , code field OFPQOFC_BAD_QUEUE"""
     
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running QueueOpFailedBadQueue Grp100No290 test")

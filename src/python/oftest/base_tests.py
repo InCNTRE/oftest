@@ -12,6 +12,7 @@ from oftest import config
 import oftest.controller as controller
 import oftest.cstruct as ofp
 import oftest.message as message
+import oftest.oflog as oflog
 import oftest.dataplane as dataplane
 import oftest.action as action
 import oftest.testutils
@@ -25,6 +26,7 @@ class SimpleProtocol(unittest.TestCase):
     mandatory = False
 
     def setUp(self):
+        oflog.start_logging(self)
         logging.info("** START TEST CASE " + str(self))
         self.controller = controller.Controller(
             host=config["controller_host"],
@@ -130,6 +132,7 @@ class DataPlaneOnly(unittest.TestCase):
     """
 
     def setUp(self):
+        oflog.start_logging(self)
         self.clean_shutdown = True
         logging.info("** START DataPlaneOnly CASE " + str(self))
         self.dataplane = dataplane.DataPlane(config)

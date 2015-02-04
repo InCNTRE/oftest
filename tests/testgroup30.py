@@ -26,7 +26,7 @@ from FuncUtils import *
 
 class Grp30No10(base_tests.SimpleDataPlane):
 
-    @wireshark_capture
+    
     def runTest(self):
         logging =  get_logger()
         logging.info("Running Grp30No10 Flood testcase")
@@ -86,7 +86,7 @@ class Grp30No20(base_tests.SimpleDataPlane):
     unset correctly.
     '''
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp30No20 PortMod PortDown Test")
@@ -136,7 +136,7 @@ class Grp30No40(base_tests.SimpleDataPlane):
     """Modify the behavior of physical port using Port Modification Messages
     Change OFPPC_PORT_DOWN flag  and verify change takes place by Port_Status Message"""
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp30No40 PortMod PortDown Test")
@@ -193,7 +193,7 @@ class Grp30No40(base_tests.SimpleDataPlane):
         
 class Grp30No80(base_tests.SimpleDataPlane):
 
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         logging.info("Running Grp30No80 Flood bits Test")
@@ -253,7 +253,7 @@ class Grp30No90(base_tests.SimpleDataPlane):
     Modify the behavior of physical port using Port Modification Messages
     Change OFPPC_NO_FWD flag and verify change took place with Features Request"""
 
-    @wireshark_capture
+    
     def runTest(self):
 
         logging = get_logger()
@@ -367,7 +367,7 @@ class Grp30No100(base_tests.SimpleDataPlane):
     Modify the behavior of physical port using Port Modification Messages
     Change OFPPC_NO_PACKET_IN flag and verify change took place with Features Request"""
 
-    @wireshark_capture
+    
     def runTest(self):
     
 

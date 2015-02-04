@@ -1,10 +1,10 @@
 """
 These tests fall under Conformance Test-Suite (OF-SWITCH-1.0.0 TestCases).
 Refer Documentation -- Detailed testing methodology 
-    <Some of test-cases are directly taken from oftest> """
+<Some of test-cases are directly taken from oftest>
 
 "Test Suite 1 --> Basic Sanity Tests"
-
+"""
 
 import time
 import sys
@@ -27,16 +27,15 @@ from oftest.testutils import *
 from time import sleep
 from FuncUtils import *
 
+
 class Grp10No10(base_tests.SimpleDataPlane):
     """
     Switch Startup behaviour without estabilished control channel. 
     Make sure no dataplane packets are forwarded (since there are no flows)
     i.e switch does not behave like a learning switch
     """
-
-    @wireshark_capture
+    
     def runTest(self):
-        
         logging = get_logger()
         logging.info("Running TestNo10 SwStartup test")
 
@@ -55,40 +54,33 @@ class Grp10No10(base_tests.SimpleDataPlane):
         self.controller.shutdown()
         
         # Keep sending the packets till the control plane gets shutdown
-
         pkt = simple_tcp_packet()
         
         assertionerr = False
         logging.info("Checking for Control channel connection status")
 
-        try :
+        try:
             for x in range(15):
         	self.dataplane.send(ingress_port, str(pkt))
                 (response, raw) = self.controller.poll(ofp.OFPT_PACKET_IN, timeout=5)
                 self.assertTrue(response is not None,
                                 'PacketIn is not generated--Control plane is down')
         
-        except AssertionError :
-        
+        except AssertionError:
             #Send a simple tcp packet on ingress_port
             logging.info("Control  Channel Connection not present")
             logging.info("Sending simple tcp packet ...")
             self.dataplane.send(ingress_port, str(pkt))
         
-
             #Verify dataplane packet should not be forwarded
             logging.info("Packet should not be forwarded to any dataplane port")
             no_ports=set(of_ports)
             yes_ports=[]
             receive_pkt_check(self.dataplane,pkt,yes_ports,no_ports,self)
             assertionerr = True
-        
-        else :
-
+        else:
             self.assertTrue(assertionerr is True, "Failed to shutdown the control plane")
-            
-      
-	
+
 
 class Grp10No20(base_tests.SimpleProtocol):
     """
@@ -99,7 +91,6 @@ class Grp10No20(base_tests.SimpleProtocol):
     Note : If tcp port is other than 6633, make sure sw is also configured to listen on the alternate port
     """
     
-    @wireshark_capture
     def runTest(self):
         # Send echo_request to verify connection
         logging = get_logger()
@@ -122,11 +113,10 @@ class Grp10No30(base_tests.SimpleDataPlane):
     
     @of_version can be passed from command line , default is 0x01
     """
-    
 
     def setUp(self):
-        
-        #This is almost same as setUp in SimpleProtocol except that intial hello is set to false
+        # This is almost same as setUp in SimpleProtocol except that intial hello is set to false
+        start_logging(self)
         self.controller = controller.Controller(
             host=config["controller_host"],
             port=config["controller_port"])
@@ -145,7 +135,6 @@ class Grp10No30(base_tests.SimpleDataPlane):
             raise Exception("Controller startup failed (no switch addr)")
         logging.info("Connected " + str(self.controller.switch_addr))
 
-    @wireshark_capture
     def runTest(self):
         logging = get_logger()
         logging.info("Running Test Grp10No30 Version Announcement test")
@@ -165,11 +154,12 @@ class Grp10No40(base_tests.SimpleProtocol):
     """
     Verify switch negotiates on the correct version.
     Upon receipt of the Hello message, the recipient may calculate the OpenFlow protocol version
-    to be used as the smaller of the version number that it sent and the one that it received. 
-
+    to be used as the smaller of the version number that it sent and the one that it received.
     """
+
     def setUp(self):
-        #This is almost same as setUp in SimpleProtcocol except that intial hello is set to false
+        # This is almost same as setUp in SimpleProtcocol except that intial hello is set to false
+        start_logging(self)
         self.controller = controller.Controller(
             host=config["controller_host"],
             port=config["controller_port"])
@@ -191,7 +181,7 @@ class Grp10No40(base_tests.SimpleProtocol):
             raise Exception("Controller startup failed (no switch addr)")
         logging.info("Connected " + str(self.controller.switch_addr))
         
-    @wireshark_capture 
+     
     def runTest(self):
         logging = get_logger()
 
@@ -216,8 +206,10 @@ class Grp10No50(base_tests.SimpleProtocol):
     Verify the switch reports correct error message and terminates the connection, 
     if no common version can be negotiated
     """
+
     def setUp(self):
-        #This is almost same as setUp in SimpleProtcocol except that intial hello is set to false
+        # This is almost same as setUp in SimpleProtcocol except that intial hello is set to false
+        start_logging(self)
         self.controller = controller.Controller(
             host=config["controller_host"],
         # clean_shutdown should be set to False to force quit app
@@ -240,7 +232,7 @@ class Grp10No50(base_tests.SimpleProtocol):
             raise Exception("Controller startup failed (no switch addr)")
         #logging.info("Connected " + str(self.controller.switch_addr))
         
-    @wireshark_capture    
+        
     def runTest(self):
         logging = get_logger()
 
@@ -274,10 +266,11 @@ class Grp10No50(base_tests.SimpleProtocol):
 class Grp10No80(base_tests.SimpleProtocol):
     """
     Verify Echo timeout causes connection to the controller to drop
-    """ 
-    def setUp(self):
+    """
 
-        #This is almost same as setUp in SimpleProtcocol except that Echo response is set to false
+    def setUp(self):
+        # This is almost same as setUp in SimpleProtcocol except that Echo response is set to false
+        start_logging(self)
         self.controller = controller.Controller(
             host=config["controller_host"],
             port=config["controller_port"])
@@ -304,7 +297,7 @@ class Grp10No80(base_tests.SimpleProtocol):
         self.controller.shutdown()
         if self.clean_shutdown:
             self.controller.join()    
-    @wireshark_capture    
+        
     def runTest(self):
         logging = get_logger()
         logging.info("Running TestNo80 EchoTimeout ")
@@ -329,7 +322,7 @@ class Grp10No110(base_tests.SimpleDataPlane):
     Testcase unstable framework issues.
     """
    
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
 
@@ -448,7 +441,7 @@ class Grp10No100(base_tests.SimpleDataPlane):
     then verify 
     1. Emergency mode removes standard flow entries after the control channel disconnection
     """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
         (response, pkt)=self.controller.poll(ofp.OFPT_HELLO, timeout=15)
@@ -521,7 +514,7 @@ class Grp10No90(base_tests.SimpleDataPlane):
     then verify 
     1. Emergency flows can be added , they are active after control channel gets disconnected 
     """
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
 
@@ -596,7 +589,7 @@ class Grp10No120(base_tests.SimpleDataPlane):
     """If switch does not support Emergency mode , it should support fail-secure mode
     (refer spec 1.0.1).
     Verify even after the control channel disconnection, the standard flows timeout normally"""
-    @wireshark_capture
+    
     def runTest(self):
         logging = get_logger()
 
