@@ -24,6 +24,7 @@ from oftest.oflog import *
 from oftest.testutils import *
 from time import sleep
 from FuncUtils import *
+from threading import Thread
 
 class Grp40No10(base_tests.SimpleDataPlane):
     """Verify that flow mod overlaps trigger an error message.
@@ -1018,7 +1019,7 @@ class Grp40No210(base_tests.SimpleDataPlane):
         self.assertEqual(rc, 0, "Failed to delete all flows")
 
         logging.info("Inserting flow entry with hard_timeout set and send_flow_removed_message flag set")
-	   
+        
         # Insert a flow with hard_timeout = 1 but no Send_Flow_Rem flag set
         pkt = simple_tcp_packet()
         match3 = parse.packet_to_flow_match(pkt)
@@ -1041,9 +1042,9 @@ class Grp40No210(base_tests.SimpleDataPlane):
         self.assertTrue(rv != -1, "Error installing flow mod")
         self.assertEqual(do_barrier(self.controller), 0, "Barrier failed")
         pkt = str(simple_tcp_packet())
-        #Send data plane traffic
-        self.dataplane.send(of_ports[0],pkt)
-        receive_pkt_verify(self,of_ports[1],pkt,of_ports[0])
+        #Send data plane traffic in background
+        t = Thread(target=self.background_traffic, args=(of_ports[0], pkt,))
+        t.start()
 
         #Verify no flow removed message is generated
         logging.info("Verifying that there is OFPT_FLOW_REMOVED message received")
@@ -1054,3 +1055,10 @@ class Grp40No210(base_tests.SimpleDataPlane):
 
         # Verify flow was alive for 1 sec
         self.assertEqual(response.duration_sec, 1, 'Flow was not alive for 1 sec')
+        t.join()
+
+    def background_traffic(self, ingress_port, pkt):
+        #send 6 packets in 3 seconds
+        for i in range(6):
+            self.dataplane.send(ingress_port,pkt)
+            time.sleep(0.5)
